@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!-- Template by Quackit.com -->
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+                 <!-- The above 3 meta tags must come first in the head; any other head content must come after these tags -->
+
+                <title>News</title>
+ <link href='https://fonts.googleapis.com/css?family=Titillium+Web:400,300,600' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet">
+
+                <!-- Bootstrap -->
+
+
+
+      <link rel="stylesheet" href="/static/stylelogin.css">
+
+                <!-- Google font -->
+                <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CLato:300,400" rel="stylesheet">
+
+                <!-- Bootstrap -->
+                <link type="text/css" rel="stylesheet" href="/static/bootstrap.min.css"/>
+
+                <!-- Owl Carousel -->
+                <link type="text/css" rel="stylesheet" href="/static/owl.carousel.css" />
+                <link type="text/css" rel="stylesheet" href="/static/owl.theme.default.css" />
+
+                <!-- Font Awesome Icon -->
+
+                <!-- Custom stlylesheet -->
+                <link type="text/css" rel="stylesheet" href="/static/style.css"/>
+
+                <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+                <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+                <!--[if lt IE 9]>
+                  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+                  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+                <![endif]-->
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>News</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="/static/bootstraparticles.min.css" rel="stylesheet">
+
+    <!-- Custom CSS: You can use this stylesheet to override any Bootstrap styles and/or apply your own styles -->
+    <link href="/static/customarticles.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        @import url(//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css);
+
+.detailBox {
+    width:320px;
+    border:1px solid #bbb;
+    margin:50px;
+}
+.titleBox {
+    background-color:#fdfdfd;
+    padding:10px;
+}
+.titleBox label{
+  color:#444;
+  margin:0;
+  display:inline-block;
+}
+
+.commentBox {
+    padding:10px;
+    border-top:1px dotted #bbb;
+}
+.commentBox .form-group:first-child, .actionBox .form-group:first-child {
+    width:80%;
+}
+.commentBox .form-group:nth-child(2), .actionBox .form-group:nth-child(2) {
+    width:18%;
+}
+.actionBox .form-group * {
+    width:100%;
+}
+.taskDescription {
+    margin-top:10px 0;
+}
+.commentList {
+    padding:0;
+    list-style:none;
+    max-height:200px;
+    overflow:auto;
+}
+.commentList li {
+    margin:0;
+    margin-top:10px;
+}
+.commentList li > div {
+    display:table-cell;
+}
+.commenterImage {
+    width:30px;
+    margin-right:5px;
+    height:100%;
+    float:left;
+}
+.commenterImage img {
+    width:100%;
+    border-radius:50%;
+}
+.commentText p {
+    margin:0;
+}
+.sub-text {
+    color:#aaa;
+    font-family:verdana;
+    font-size:11px;
+}
+.actionBox {
+    border-top:1px dotted #bbb;
+    padding:10px;
+}
+    </style>
+</head>
+
+<body>
+ <!-- Header -->
+                <header id="header">
+                        <!-- Nav Header -->
+                        <div id="nav-header">
+                                <div class="container">
+                                        <nav id="main-nav">
+                                                <ul class="main-nav nav navbar-nav">
+                                                        <li><a href="/dashboard">Home</a></li>
+                                                        <li><a href="/cities">Cities</a></li>
+                                                        <li><a href="/sports">Sports</a></li>
+                                                        <li><a href="/india">India</a></li>
+                                                    {% if check==1%}
+                                                    <li><a href="/Saved">Favourites</a></li>
+                                                    <li><a href="/logout">Logout</a></li>
+                                                    {%else%}
+                                                    <li><a href="/login">Login</a></li>
+                                                    <li><a href="/signup">Signup</a></li>
+                                                    {%endif%}
+                                                </ul>
+                                        </nav>
+                                </div>
+                        </div>
+                        <!-- /Nav Header -->
+                </header>
+
+<div class="container-fluid">
+		<!-- Left Column -->
+		<div class="col-sm-3">
+			<!-- List-Group Panel -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h1 class="panel-title"><span class="glyphicon glyphicon-random"></span>Other News in this Category</h1>
+				</div>
+				<div class="list-group">
+                    {% for item in articledisplay %}
+					<a href="/{{category}}/{{item.id}}" class="list-group-item">{{item.heading}}</a>
+                    {%endfor%}
+				</div>
+			</div>
+		</div><!--/Left Column-->
+
+		<!-- Center Column -->
+		<div class="col-sm-6">
+			<!-- Articles -->
+			<div class="row">
+				<article class="col-xs-12">
+					<h2>{{rows.heading}}</h2>
+					<img src="{{rows.imagelink}}" style="width:100%">
+					<ul class="list-inline">
+						<p style="font-size=300%;">{{rows.article}}</p>
+					</ul>
+				</article>
+			</div>
+			<hr>
+
+		</div><!--/Center Column-->
+
+	  <!-- Right Column -->
+
+					{% from "includes/_formhelpers.html" import render_field %}
+<div class="detailBox col-sm-3">
+    <div class="titleBox">
+        <h5>Comments</h5>
+    </div>
+
+    <div class="actionBox">
+        <ul class="commentList">
+            {%for item in comments%}
+            <li>
+
+                <div class="commentText">
+                    <p class="">{{item.username}}:::{{item.comment}}</p>
+
+                </div>
+            </li>
+            {%endfor%}
+        </ul>
+        <form class="form-inline" role="form" action="" method="POST" style="width:100%">
+            <div class="form-group">
+                <input class="form-control" type="text" name="comment" placeholder="Your comments" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default">Add</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+				</div>
+			</div>
+	  </div><!--/Right Column -->
+	</div><!--/container-fluid-->
+    <!-- jQuery -->
+    <script src="../static/jquery-1.11.3.minarticles.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../static/bootstraparticles.min.js"></script>
+	<!-- IE10 viewport bug workaround -->
+	<script src="../static/ie10-viewport-bug-workaroundarticles.js"></script>
+	<!-- Placeholder Images -->
+	<script src="../static/holderarticles.min.js"></script>
+	
+</body>
+
+</html>
